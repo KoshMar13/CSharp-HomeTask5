@@ -65,22 +65,21 @@ else
 // int[] MultiCouples(int[] array)
 // {
 //     int len = array.Length;
-//     if(len % 2 ==0)  Я не понимаю, почему не работает. Складывается ощущение, что программа не заходит в проверки, поэтому не создаётся массив answer, поэтому идёт ошибка.
+//     if (len % 2 == 0)
 //     {
 //         int[] answer = new int[len / 2];
-//         for (int i = 0; i < len / 2; i++)
-//         {
-//             answer[i] = array[i] * array[len - 1 - i];
-//         }
 //     }
-//     else(len % 2 ==1)
+//     else
 //     {
 //         int[] answer = new int[len / 2 + 1];
-//         for (int i = 0; i < len / 2; i++)
-//         {
-//             answer[i] = array[i] * array[len - 1 - i];
-//         }
-//         answer[len / 2] = array[len / 2];
 //     }
-//     return answer; error CS0103: Имя "answer" не существует в текущем контексте
+//     for (int i = 0; i < len / 2; i++)
+//     {
+//         answer[i] = array[i] * array[len - 1 - i];
+//     }
+//     return answer;
 // }
+// int[] arr = NewArrayRnd(5, 0, 11);
+// PrintArray(arr);
+// Console.WriteLine();
+// PrintArray(MultiCouples(arr));
