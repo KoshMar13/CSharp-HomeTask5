@@ -17,11 +17,12 @@ int[] NewArrayRnd(int size, int min, int max)
 
 void PrintArray(int[] array)
 {
-    for (int i = 0; i < array.Length; i++)
+    int len = array.Length;
+    for (int i = 0; i < len; i++)
     {
         if (i == 0)
             Console.Write("[");
-        if (i < array.Length - 1)
+        if (i < len - 1)
             Console.Write(array[i] + ", ");
         else
             Console.Write(array[i] + "]");
@@ -30,15 +31,28 @@ void PrintArray(int[] array)
 
 int[] MultiCouples(int[] array)
 {
-    int[] answer = new int[array.Length / 2];
-    for (int i = 0; i < array.Length / 2; i++)
+    int len = array.Length;
+    if (len % 2 == 0)
     {
-        answer[i] = array[i] * array[array.Length - 1 - i];
+        int[] answer = new int[len / 2];
+        for (int i = 0; i < len / 2; i++)
+        {
+            answer[i] = array[i] * array[len - 1 - i];
+        }
+    }
+    else
+    {
+        int[] answer = new int[len / 2 + 1];
+        for (int i = 0; i < len / 2; i++)
+        {
+            answer[i] = array[i] * array[len - 1 - i];
+        }
+        answer[len / 2 + 1] = array[len / 2 + 1];
     }
     return answer;
 }
 
-int[] arr = NewArrayRnd(5, 0, 11);
+int[] arr = NewArrayRnd(4, 0, 11);
 PrintArray(arr);
 Console.WriteLine();
 PrintArray(MultiCouples(arr));
