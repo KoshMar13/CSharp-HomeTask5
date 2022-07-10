@@ -7,7 +7,9 @@ double[] NewArrayRnd(int size, int min, int max)
     var rnd = new Random();
     for (int i = 0; i < size; i++)
     {
-        array[i] = rnd.Next(min, max + 1);
+        double num1 = rnd.Next(min, max + 1);
+        double num2 = rnd.Next(1, 10);
+        array[i] = num1 / num2;
     }
     return array;
 }
@@ -20,7 +22,7 @@ void PrintArray(double[] array)
         if (i == 0)
             Console.Write("[");
         if (i < len - 1)
-            Console.Write(array[i] + ", ");
+            Console.Write(array[i] + "; ");
         else
             Console.Write(array[i] + "]");
     }

@@ -29,57 +29,50 @@ void PrintArray(int[] array)
     }
 }
 
-int[] MultiCouplesEven(int[] array) //Да, я понимаю, что пошёл сложным путём. Простой но нерабочий путь см. строки 65 и далее.
-{
-    int len = array.Length;
-
-    int[] answer = new int[len / 2];
-    for (int i = 0; i < len / 2; i++)
-    {
-        answer[i] = array[i] * array[len - 1 - i];
-    }
-
-    return answer;
-}
-
-int[] MultiCouplesOdd(int[] array)
-{
-    int len = array.Length;
-    int[] answer = new int[len / 2 + 1];
-    for (int i = 0; i < len / 2; i++)
-    {
-        answer[i] = array[i] * array[len - 1 - i];
-    }
-    answer[len / 2] = array[len / 2];
-    return answer;
-}
-
-int[] arr = NewArrayRnd(5, 0, 11);
-PrintArray(arr);
-Console.WriteLine();
-if (arr.Length % 2 == 0)
-    PrintArray(MultiCouplesEven(arr));
-else
-    PrintArray(MultiCouplesOdd(arr));
-
-// int[] MultiCouples(int[] array)
+// int[] MultiCouplesEven(int[] array) //Да, я понимаю, что пошёл сложным путём. Простой путь см. строки 65 и далее.
 // {
 //     int len = array.Length;
-//     if (len % 2 == 0)
-//     {
-//         int[] answer = new int[len / 2];
-//     }
-//     else
-//     {
-//         int[] answer = new int[len / 2 + 1];
-//     }
+
+//     int[] answer = new int[len / 2];
 //     for (int i = 0; i < len / 2; i++)
 //     {
 //         answer[i] = array[i] * array[len - 1 - i];
 //     }
+
 //     return answer;
 // }
+
+// int[] MultiCouplesOdd(int[] array)
+// {
+//     int len = array.Length;
+//     int[] answer = new int[len / 2 + 1];
+//     for (int i = 0; i < len / 2; i++)
+//     {
+//         answer[i] = array[i] * array[len - 1 - i];
+//     }
+//     answer[len / 2] = array[len / 2];
+//     return answer;
+// }
+
 // int[] arr = NewArrayRnd(5, 0, 11);
 // PrintArray(arr);
 // Console.WriteLine();
-// PrintArray(MultiCouples(arr));
+// if (arr.Length % 2 == 0)
+//     PrintArray(MultiCouplesEven(arr));
+// else
+//     PrintArray(MultiCouplesOdd(arr));
+
+int[] MultiCouples(int[] array)
+{
+    int res = len % 2 == 0 ? int[] answer = new int[len / 2] : int[] answer = new int[len / 2 + 1];
+
+    for (int i = 0; i < len / 2; i++)
+    {
+        answer[i] = array[i] * array[len - 1 - i];
+    }
+    return answer;
+}
+int[] arr = NewArrayRnd(5, 0, 11);
+PrintArray(arr);
+Console.WriteLine();
+PrintArray(MultiCouples(arr));
